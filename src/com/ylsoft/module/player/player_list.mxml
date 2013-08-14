@@ -213,7 +213,8 @@
 				<s:HGroup right="2" top="2" width="357">
 					<s:Button id="search_btn"  label="查询" click="doSearch()" enabled="false" buttonMode="true"/>
 					<s:Button  label="选择运营商和服务器" click="buissnesserChooser()" buttonMode="true"/>
-					<s:Button id="killbtn" label="封号" click="kill()" buttonMode="true"/>
+					<s:Button id="killbtn" visible="false" label="封号" buttonMode="true"
+							  click="kill()"/>
 				</s:HGroup>
 				<s:HGroup y="34" right="0" width="302">
 					<s:Label  fontWeight="bold" text="已选择服务器"/><s:Label textAlign="center" id="lb_servername" color="#FF0000" text=""/>

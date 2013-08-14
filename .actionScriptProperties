@@ -10,6 +10,7 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
+      <libraryPathEntry kind="3" linkType="1" path="/xywy10_libcore/bin/xywy10_libcore.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -18,6 +19,40 @@
   </applications>
   <modules>
     <module application="src/gameframework.mxml" destPath="com/ylsoft/module/left.swf" optimize="true" sourcePath="src/com/ylsoft/module/left.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/admin/admin_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/admin/admin_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/admin/admin_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/admin/admin_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/admin/permission.swf" optimize="true" sourcePath="src/com/ylsoft/module/admin/permission.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/adminfunc/admin_apply_manage_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/adminfunc/admin_apply_manage_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/buissnesser/buissnesser_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/buissnesser/buissnesser_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/buissnesser/buissnesser_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/buissnesser/buissnesser_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/createData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/createData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/dailyActivityData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/dailyActivityData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/dailyCopyData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/dailyCopyData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/levelData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/levelData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/loginData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/loginData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/rechargeData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/rechargeData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/rechargeOrderData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/rechargeOrderData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/singleArpuData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/singleArpuData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/synthesis_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/synthesis_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/turnoverData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/turnoverData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/userStayData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/userStayData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/userTurnOverData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/userTurnOverData_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/managefunc/admin_apply_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/managefunc/admin_apply_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/managefunc/admin_apply_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/managefunc/admin_apply_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/managefunc/reward_apply_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/managefunc/reward_apply_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/managefunc/reward_apply_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/managefunc/reward_apply_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/player/player_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/player/player_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/server/server_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/server/server_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/server/server_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/server/server_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/activecode_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/activecode_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/activecode_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/activecode_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/mail_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/mail_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/mail_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/mail_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/mail_service_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/mail_service_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/notice_add.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/notice_add.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/notice_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/notice_list.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/login.swf" optimize="true" sourcePath="src/com/ylsoft/module/login.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/main.swf" optimize="true" sourcePath="src/com/ylsoft/module/main.mxml"/>
   </modules>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
