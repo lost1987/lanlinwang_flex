@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ROOT>
+   <FOLDER name="数据报表" type="folder" permission="1" id="sjbb" visiable="true">
+   		<NODE name="综合数据" module="data/synthesis_list" permission="1" visiable="true"></NODE>
+   		<NODE name="注册创建" module="data/createData_list" permission="2" visiable="true"></NODE>
+   		<NODE name="登录在线图表" module="data/loginData_list" permission="4" visiable="true"></NODE>
+   		<NODE name="充值图表" module="data/rechargeData_list" permission="8" visiable="true"></NODE>
+   		<NODE name="单系统ARPU" module="data/singleArpuData_list" permission="16" visiable="false"></NODE>
+   		<NODE name="充值排名" module="data/rechargeOrderData_list" permission="32" visiable="true"></NODE>
+   </FOLDER>
+   <FOLDER name="流失率"  type="folder" permission="2" id="lsl" visiable="true">
+   			<NODE name="角色流失率" module="data/userTurnOverData_list" permission="1" visiable="false"></NODE>
+   			<NODE name="等级流失率" module="data/levelData_list" permission="2" visiable="true"></NODE>
+   			<NODE name="时间段流失率" module="data/turnoverData_list" permission="4" visiable="true"></NODE>
+   	</FOLDER>
+   	<FOLDER name="留存活跃" module="" type="folder" permission="4" id="lchy" visiable="true">
+			<NODE name="玩家留存率" module="data/userStayData_list" permission="1" visiable="true"></NODE>
+			<NODE name="每日任务" module="data/dailyTaskData_list" permission="2" visiable="false"></NODE>
+			<NODE name="全部副本" module="data/dailyCopyData_list" permission="4" visiable="false"></NODE>
+			<NODE name="各类活动" module="data/dailyActivityData_list" permission="8" visiable="false"></NODE>
+   </FOLDER>
+   <FOLDER name="系统管理" type="folder" permission="8" id="xtgl" visiable="true">
+   		<NODE name="系统邮件管理" module="sys/mail_list" permission="1" visiable="true"></NODE>
+   		<NODE name="公告列表" module="sys/notice_list" permission="2" visiable="false"></NODE>
+   		<NODE name="礼包验证码" module="sys/activecode_list" permission="4" visiable="false"></NODE>
+   		<NODE name="客服邮件发送" module="sys/mail_service_add" permission="8" visiable="false"></NODE>
+   </FOLDER>
+   <FOLDER name="玩家管理" type="folder" permission="16" id="wjgl" visiable="true">
+   		<NODE name="玩家详情" module="player/player_list" permission="1" visiable="true"></NODE>
+   </FOLDER>
+   <FOLDER name="运营功能" type="folder" permission="32" id="yygl" visiable="false">
+   		<NODE name="奖励申请" module="managefunc/reward_apply_list" permission="1" visiable="false"></NODE>
+   		<NODE name="申请开服" module="" permission="2" visiable="false"></NODE>
+   		<NODE name="申请合服" module="" permission="4" visiable="false"></NODE>
+   		<NODE name="申请管理员账号" module="managefunc/admin_apply_list" permission="8" visiable="false"></NODE>
+   </FOLDER>
+   <FOLDER name="管理员功能" type="folder" permission="64" id="glygl" visiable="true">
+   		<NODE name="运营商管理" module="buissnesser/buissnesser_list" permission="1" visiable="true"></NODE>
+   		<NODE name="服务器管理" module="server/server_list" permission="2" visiable="true"></NODE>
+   		<NODE name="申请管理员账号管理" module="adminfunc/admin_apply_manage_list" permission="4" visiable="false"></NODE>
+   </FOLDER>
+   <FOLDER name="账号管理" type="folder" permission="128" id="zhgl" visiable="true">
+   		<NODE name="管理员账号" module="admin/admin_list" permission="1" visiable="true"></NODE>
+   		<NODE name="管理员权限" module="admin/permission" permission="2" visiable="true"></NODE>
+   </FOLDER>
+</ROOT>

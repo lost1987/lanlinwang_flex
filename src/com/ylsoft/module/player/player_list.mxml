@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Module xmlns:fx="http://ns.adobe.com/mxml/2009"
+		  xmlns:s="library://ns.adobe.com/flex/spark"
+		  xmlns:mx="library://ns.adobe.com/flex/mx"
+		  xmlns:component="com.ylsoft.component.*" creationComplete="init()"
+		  width="100%" height="100%">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.ylsoft.common.Color;
+			import com.ylsoft.common.Message;
+			import com.ylsoft.common.Pagelimit;
+			import com.ylsoft.common.SColorLabel;
+			import com.ylsoft.common.XWindow;
+			import com.ylsoft.component.BuissnesserChooserSingle;
+			import com.ylsoft.core.Amf;
+			import com.ylsoft.core.AppConfig;
+			import com.ylsoft.event.AppEvent;
+			
+			import mx.collections.ArrayCollection;
+			import mx.collections.ArrayList;
+			import mx.controls.Alert;
+			import mx.core.FlexGlobals;
+			import mx.events.ItemClickEvent;
+			
+			import spark.components.gridClasses.GridColumn;
+			
+			public var server:Object ;
+			private var amf:Amf;
+			
+			   private function init():void{
+				   this.panel.title = "玩家列表";
+				   //禁用返回列表
+				   FlexGlobals.topLevelApplication.form_return.enabled=false;
+				   initColumns();
+				   
+				   //监听运营商服务器选择事件
+				   this.addEventListener(AppEvent.BUISSNESSER_CHOOSE_COMPLETE,buissnesserChooserComplete);
+				   
+				   //初始化搜索栏组件
+				   this.onlinestatus.labelField = 'label';
+				   this.onlinestatus.dataProvider = new ArrayCollection(
+					   [
+						   {'label':'所有','type':0},
+						   {'label':'在线','type':1},
+						   {'label':'离线','type':2}
+					   ]
+				   );
+				   this.onlinestatus.selectedIndex = 0;
+				   
+				   //初始化排序
+				   this.order.labelField = 'label';
+				   this.order.dataProvider = new ArrayCollection([
+					   {label:"所有",value:0},
+					   {label:"等级:高->低",value:1},
+					   {label:"元宝:高->低",value:2},
+					   {label:"铜币:高->低",value:3}
+				   ]);
+				   this.order.selectedIndex = 0;
+			   }
+			
+				public function initDataGrid(evt:AppEvent):void{
+					var result:ArrayCollection
+					if(amf != null){
+						result = new ArrayCollection(amf.getResult() as Array);
+					}
+					else if(sb.amf != null)
+						result = new ArrayCollection(sb.amf.getResult() as Array);
+					
+					dg.dataProvider = result;
+					initSubpage();
+					amf = null;
+				}
+			
+			  private function initColumns():void{
+				  
+				    var columns:Array = [];
+					var columns_properties:Array = [
+						{dataField:"uid",headerText:"uid",width:""},
+					    {dataField:"loginname",headerText:"登录名",width:""},
+					    {dataField:"name",headerText:"角色",width:""},
+					    {dataField:"level",headerText:"等级",width:""},
+						{dataField:"exp",headerText:"经验值",width:""},
+						{dataField:"jingli",headerText:"精力",width:""},
+						{dataField:"tili",headerText:"体力",width:""},
+						{dataField:"bagnum",headerText:"背包容量",width:""},
+						{dataField:"sex",headerText:"性别",width:""},
+						{dataField:"vip",headerText:"vip",width:""},
+					    {dataField:"money1",headerText:"铜币",width:""},
+					    {dataField:"money2",headerText:"拥有元宝",width:""},
+					    {dataField:"money3",headerText:"士气",width:""},
+					    {dataField:"money4",headerText:"消费元宝",width:""},
+						{dataField:"cz",headerText:"充值总元宝",width:""},
+					    {dataField:"createdate",headerText:"创建时间",width:""}
+					 ]
+						
+				    for(var i:int = 0 ; i< columns_properties.length; i++){
+						var  column : GridColumn = new GridColumn;
+						column.dataField = columns_properties[i].dataField;
+						column.headerText = columns_properties[i].headerText;
+						if(columns_properties[i].width>1)column.width = columns_properties[i].width;
+						
+						//labelFunction
+						if(column.dataField == 'sex'){
+							 column.labelFunction = function(object:Object,grid:GridColumn):String{
+								    if(object.sex == 0)return '/';
+									else if(object.sex==1) return '男';
+									else return '女';
+							 }
+						}
+						
+						//itemRenderer
+						if(column.dataField == 'name' || column.dataField == 'loginname'){
+							var  factory:ClassFactory = new ClassFactory(SColorLabel);
+							 factory.properties = {color:Color.purple};
+							 column.itemRenderer = factory;
+						}
+						
+						columns.push(column);
+					}
+					
+					this.dg.columns = new ArrayList(columns);
+					
+			  }
+			
+			private function initSubpage():void{
+				sb.service = 'playerService';
+				sb.method = 'lists';
+				sb.methodTotal = 'num_rows';
+				sb.container = this;
+				sb.condition = getCondition();
+				sb.initTotal();				
+			}
+			
+			private function getCondition():Object{
+				var condition : Object = new Object();
+				condition.account_or_name = this.lb_account_or_name.text;
+				condition.onlinestatus = this.onlinestatus.selectedItem.type;
+				condition.server = server;
+				condition.order = order.selectedItem.value;
+				return condition;
+			}
+			
+			private function buissnesserChooser():void{
+				var bc : BuissnesserChooserSingle = new BuissnesserChooserSingle();
+				bc.width = 800;
+				bc.height = 400;
+				XWindow.getInstance().addWindow(bc,this).show();
+			}
+			
+			private function buissnesserChooserComplete(evt:AppEvent):void{
+				if(server!=null){
+					this.lb_servername.text = server.name;
+					this.search_btn.enabled = true;
+				}
+				this.search_btn.dispatchEvent(new MouseEvent(MouseEvent.CLICK));
+				this.onlinestatus.dispatchEvent(new Event(Event.CHANGE));
+			}
+			
+			private function doSearch():void{
+				this.sb.is_total_exec = false;
+				amf = new Amf();
+				amf.setFaultMessage("通信失败");
+				amf.registerCallBack(initDataGrid);
+				amf.startService('playerService','lists',new Pagelimit(0,AppConfig.PAGECOUNT),getCondition());
+			}
+			
+			private function kill():void{
+				if(this.dg.selectedItems.length == 0){
+					Alert.show("请选择要封号的玩家");return;
+				}
+				Message.confirm("确认要封禁此账号吗?操作将不可恢复!!!亲~",this,this.killConfirm);
+			}
+			
+			private function killConfirm():void{
+				//发送请求修改玩家状态
+				amf = new Amf();
+				amf.setFaultMessage('通信失败');
+				amf.registerCallBack(killhandler);
+				amf.startService('playerService','kill',this.dg.selectedItems,this.server);
+			}
+			
+			private function killhandler(evt:AppEvent):void{
+				var result:Boolean = amf.getResult() as Boolean;
+				amf = null;
+				if(result){
+			/*		var sl : SocketListener = new SocketListener(this.cd.selecteditems);
+					var nc : NetCore31 = new NetCore31(sl);
+					nc.connect(this.server.server_ip,this.server.server_port);
+					return;*/
+				}
+				Alert.show('封号失败');
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:Panel left="0" top="0" width="100%" height="100%" borderVisible="true" id="panel"
+			 dropShadowVisible="false">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+			<s:Group width="100%" height="10%">
+				<s:Label left="10" top="15"  text="角色名或账号"/>
+				<s:TextInput left="95" top="10" id="lb_account_or_name"/>
+				<s:Label left="231" top="15"  text="状态"/>
+				<mx:ComboBox id="onlinestatus" left="260" top="10" width="80" height="25" openDuration="300"/>
+				<s:Label left="370" top="15"  text="排序"/>
+				<mx:ComboBox id="order" left="400" top="10" width="150" height="25" openDuration="300"/>
+				<s:HGroup right="2" top="2" width="357">
+					<s:Button id="search_btn"  label="查询" click="doSearch()" enabled="false" buttonMode="true"/>
+					<s:Button  label="选择运营商和服务器" click="buissnesserChooser()" buttonMode="true"/>
+					<s:Button id="killbtn" label="封号" click="kill()" buttonMode="true"/>
+				</s:HGroup>
+				<s:HGroup y="34" right="0" width="302">
+					<s:Label  fontWeight="bold" text="已选择服务器"/><s:Label textAlign="center" id="lb_servername" color="#FF0000" text=""/>
+				</s:HGroup>
+			</s:Group>
+			<s:DataGrid id="dg" left="0" width="100%" height="85%" borderVisible="false"  selectionMode="multipleRows"
+						 verticalCenter="10">
+			</s:DataGrid>
+			<component:Subpages left="0" bottom="0" width="100%" height="5%" id="sb">
+			</component:Subpages>
+	</s:Panel>
+</s:Module>

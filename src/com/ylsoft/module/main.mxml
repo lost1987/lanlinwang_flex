@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Module xmlns:fx="http://ns.adobe.com/mxml/2009"
+		  xmlns:s="library://ns.adobe.com/flex/spark"
+		  xmlns:mx="library://ns.adobe.com/flex/mx"
+		  width="100%" height="100%" backgroundColor="#F8F5D0">
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:BorderContainer id="right" width="100%" height="100%" backgroundColor="#F8F5D0"
+					   borderVisible="false" dropShadowVisible="false" horizontalCenter="0"
+					   verticalCenter="0">
+	<s:Panel x="0" y="0" width="100%" height="100%" color="#062C41">
+		<s:Label x="189" y="208" text="WELCOME!"/>
+	</s:Panel>
+	</s:BorderContainer>
+</s:Module>
