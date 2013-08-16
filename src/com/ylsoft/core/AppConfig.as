@@ -4,9 +4,12 @@ package com.ylsoft.core
 
 	public class AppConfig
 	{
-		public static const AMFURL : String = 'http://192.168.20.228/lanlinwang/gateway.php';
-		public static const EXCEL_GATEWAY : String = 'http://192.168.20.228/lanlinwang/excel_gateway.php';
-		public static const PROCESS_URL : String = 'http://192.168.20.228/lanlinwang/deamon/client.php';
+		public static const HOST:String = 'http://192.168.20.228';
+		public static const AMFURL : String = HOST+'/lanlinwang/gateway.php';
+		public static const EXCEL_GATEWAY : String = HOST+'/lanlinwang/excel_gateway.php';
+		public static const PROCESS_URL : String = HOST+'/lanlinwang/deamon/client.php';
+		public static const INFO_URL : String = HOST+'/lanlinwang/flexhtml/phpinfo.php';
+		public static const INFO_PWD:String = 'bdijltvwxzBCDEFGIJLMOQTVWXZ12357';
 		
 		public static const MATERIAL:String = 'com/ylsoft/assets/images/';
 		public static const CSVPATH:String = 'com/ylsoft/assets/csv/';
