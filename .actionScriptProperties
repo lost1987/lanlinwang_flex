@@ -53,6 +53,7 @@
     <module application="src/gameframework.mxml" destPath="com/ylsoft/module/sys/notice_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/sys/notice_list.mxml"/>
     <module application="src/gameframework.mxml" destPath="com/ylsoft/module/login.swf" optimize="true" sourcePath="src/com/ylsoft/module/login.mxml"/>
     <module application="src/gameframework.mxml" destPath="com/ylsoft/module/main.swf" optimize="true" sourcePath="src/com/ylsoft/module/main.mxml"/>
+    <module application="src/gameframework.mxml" destPath="com/ylsoft/module/data/dailyTaskData_list.swf" optimize="true" sourcePath="src/com/ylsoft/module/data/dailyTaskData_list.mxml"/>
   </modules>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>

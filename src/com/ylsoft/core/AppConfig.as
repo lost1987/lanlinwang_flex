@@ -4,6 +4,7 @@ package com.ylsoft.core
 
 	public class AppConfig
 	{
+		//public static const HOST:String = 'http://58.215.75.176';
 		public static const HOST:String = 'http://192.168.20.228';
 		public static const AMFURL : String = HOST+'/lanlinwang/gateway.php';
 		public static const EXCEL_GATEWAY : String = HOST+'/lanlinwang/excel_gateway.php';
