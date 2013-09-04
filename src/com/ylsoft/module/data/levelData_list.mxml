@@ -145,9 +145,6 @@
 				}
 			}
 			
-			private function checkPlayers():void{
-				Alert.show("功能尚未开启");
-			}
 			
 			public function exportExcel(evt:AppEvent):void{
 				var excel : Excel = Excel.getInstance();
@@ -173,7 +170,6 @@
 		<s:HGroup right="2" top="2" width="300">
 			<s:Button id="search_btn"  label="查询" click="doSearch()" enabled="false" buttonMode="true"/>
 			<s:Button  label="选择运营商和服务器" click="buissnesserChooser()" buttonMode="true"/>
-			<s:Button label="查看玩家列表" click="checkPlayers()"/>
 		</s:HGroup>
 		<s:HGroup id="tileGroup" left="0" bottom="25" width="100%" height="40">
 			<s:Label color="#FD0000" verticalAlign="middle" fontWeight="bold" text="总计"/><mx:VRule height="12"/>
