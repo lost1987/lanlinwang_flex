@@ -13,6 +13,7 @@ package com.ylsoft.common
 	import mx.effects.Move;
 	import mx.effects.Resize;
 	import mx.effects.easing.Elastic;
+	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
 	
 	
@@ -68,6 +69,39 @@ package com.ylsoft.common
 					}
 				}
 				return null;
+		}
+		
+		/**
+		 * 计算2个时间间的天数 
+		 * @return 返回包含2端日期的天数日期数组
+		 **/ 
+		public static function datediff(startdate:String,enddate:String,formatString:String='YYYY/MM/DD'):Array{
+			startdate = startdate.replace(/-/g,'/');
+			enddate = enddate.replace(/-/g,'/');
+			if((typeof startdate).toLowerCase() == 'string')
+				var  _startdate:Number =Date.parse(startdate);
+			else
+				throw new Error('参数类型错误 需要String');
+			if((typeof enddate).toLowerCase() == 'string')	  
+				var  _enddate:Number = Date.parse(enddate);
+			else
+				throw new Error('参数类型错误 需要String');
+			
+			//one day
+			var _millionSecondsPerDay : Number = 1000*60*60*24;
+			
+			var  _format : DateFormatter = new DateFormatter();
+			_format.formatString = formatString;
+			
+			var datediff_collection : Array = new Array();
+			
+			while(_startdate <= _enddate){
+				var tempdate:String =  _format.format(new Date(_startdate));
+				datediff_collection.push(tempdate);
+				_startdate += _millionSecondsPerDay;
+			}
+			
+			return datediff_collection;
 		}
 		
 	}
