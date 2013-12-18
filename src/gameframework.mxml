@@ -168,7 +168,8 @@
 				  <s:BorderContainer id="main_top" width="100%" height="7%" backgroundColor="#DCDCDC"
 								   borderVisible="true" dropShadowVisible="false">
 					<s:HGroup width="100%" horizontalAlign="right" verticalAlign="middle" height="100%">
-						<mx:LinkButton label="统计进程管理" color="#077198" click="gotoprocess()"/>
+						<mx:LinkButton label="统计进程管理" click="gotoprocess()" color="#077198"
+									   enabled="false"/>
 						<s:Group x="445" y="1" width="112" height="100%">
 							<s:Image x="10" y="8" width="25" height="25" smooth="true"
 									 smoothingQuality="high"
